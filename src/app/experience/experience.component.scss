@@ -1,0 +1,85 @@
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+  border-left: 2px solid rgba(18, 214, 64, 0.35);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: calc(-2rem - 8px);
+  top: 1.5rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #0ebac5;
+  box-shadow: 0 0 0 4px rgba(14, 186, 197, 0.25);
+}
+
+.timeline-dot.current {
+  background: #12d640;
+  box-shadow: 0 0 0 4px rgba(18, 214, 64, 0.3), 0 0 14px #12d640;
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.job-role {
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 0.15rem;
+}
+
+.job-company {
+  color: #0ebac5;
+  font-weight: 500;
+}
+
+.job-period {
+  color: #c9d1f5;
+  font-size: 0.9rem;
+  padding: 0.2rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(201, 209, 245, 0.3);
+  white-space: nowrap;
+}
+
+.job-period.current {
+  color: #12d640;
+  border-color: #12d640;
+}
+
+.job-summary {
+  color: #d5dbf7;
+  font-style: italic;
+  margin: 0.75rem 0;
+}
+
+.job-highlights {
+  color: #aab3d9;
+  padding-left: 1.1rem;
+}
+
+.job-highlights li {
+  margin-bottom: 0.4rem;
+}
+
+.job-dates {
+  text-align: right;
+}
+
+.job-duration {
+  display: block;
+  color: #8b95c9;
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+}

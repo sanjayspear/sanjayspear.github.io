@@ -1,0 +1,19 @@
+<div class="section-block">
+    <h2 class="section-title custom-font" data-aos="fade-up">Technical Skills</h2>
+    <p class="section-subtitle" data-aos="fade-up">The toolkit behind reliable, automated releases</p>
+
+    <div class="row">
+        <div class="col-md-6 col-lg-4 mb-4" *ngFor="let group of p.skills; let i = index" data-aos="fade-up"
+            [attr.data-aos-delay]="(i % 3) * 100">
+            <div class="glass-card h-100">
+                <div class="skill-head">
+                    <i [class]="group.icon + ' skill-icon'"></i>
+                    <h5>{{ group.title }}</h5>
+                </div>
+                <div class="chips">
+                    <span class="chip chip-lg" *ngFor="let s of group.items">{{ s }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

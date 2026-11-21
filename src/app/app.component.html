@@ -1,0 +1,37 @@
+<div>
+    <app-header></app-header>
+    <div class="page-bg">
+        <section class="container">
+            <div id="Home" class="section-anchor mt-5">
+                <app-home></app-home>
+            </div>
+            <div id="About" class="section-anchor">
+                <app-about></app-about>
+            </div>
+            <div id="Experience" class="section-anchor">
+                <app-experience></app-experience>
+            </div>
+            <div id="Projects" class="section-anchor">
+                <app-projects></app-projects>
+            </div>
+            <div id="Skills" class="section-anchor">
+                <app-skills></app-skills>
+            </div>
+            <div id="Education" class="section-anchor">
+                <app-education></app-education>
+            </div>
+            <div id="Resume" class="section-anchor">
+                <app-resume></app-resume>
+            </div>
+            <div id="Contact" class="section-anchor">
+                <app-contact></app-contact>
+            </div>
+
+            <button type="button" class="btn go-to-top" [class.show-scrollTop]="windowScrolled"
+                aria-label="Back to top" (click)="scrollToTop()">
+                ↑
+            </button>
+        </section>
+        <app-footer></app-footer>
+    </div>
+</div>

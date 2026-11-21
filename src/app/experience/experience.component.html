@@ -1,0 +1,29 @@
+<div class="section-block">
+    <h2 class="section-title custom-font" data-aos="fade-up">Professional Experience</h2>
+    <p class="section-subtitle" data-aos="fade-up">{{ p.experienceYears }}+ years building quality into every release</p>
+
+    <div class="timeline">
+        <div class="timeline-item" *ngFor="let job of p.experience" data-aos="fade-up">
+            <span class="timeline-dot" [class.current]="job.current"></span>
+            <div class="glass-card">
+                <div class="job-header">
+                    <div>
+                        <h4 class="job-role">{{ job.role }}</h4>
+                        <div class="job-company">{{ job.company }} · {{ job.location }}</div>
+                    </div>
+                    <div class="job-dates">
+                        <span class="job-period" [class.current]="job.current">{{ job.period }}</span>
+                        <span class="job-duration">{{ job.duration }}</span>
+                    </div>
+                </div>
+                <p class="job-summary">{{ job.summary }}</p>
+                <ul class="job-highlights">
+                    <li *ngFor="let h of job.highlights">{{ h }}</li>
+                </ul>
+                <div class="chips">
+                    <span class="chip" *ngFor="let t of job.tech">{{ t }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

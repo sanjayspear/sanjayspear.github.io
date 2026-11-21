@@ -1,0 +1,27 @@
+<div class="section-block" data-aos="fade-up">
+    <h2 class="section-title custom-font">Education</h2>
+    <p class="section-subtitle">The foundation behind the engineering</p>
+
+    <div class="row align-items-center glass">
+        <div class="col-md-6 mb-4 mb-md-0">
+            <div class="edu-body">
+                <img src="assets/Images/undraw_Graduation_re_gthn.png" alt="Graduation illustration"
+                    class="edu-img">
+                <span class="edu-year">{{ p.education.year }}</span>
+                <h4 class="edu-degree">{{ p.education.degree }}</h4>
+                <p class="edu-inst">{{ p.education.institution }}</p>
+
+                <h6 class="edu-lang-title"><i class="fas fa-language mr-2"></i>Languages</h6>
+                <div class="chips justify-content-center">
+                    <span class="chip" *ngFor="let l of p.languages">{{ l }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 video-container">
+            <video autoplay loop muted playsinline class="video-background">
+                <source src="assets/vedio/educationvedio.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+</div>

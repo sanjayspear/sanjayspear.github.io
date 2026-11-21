@@ -1,0 +1,37 @@
+.navbar {
+  background-color: rgba(5, 8, 35, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(18, 214, 64, 0.25);
+}
+
+.brand {
+  font-size: x-large;
+  font-weight: 700;
+  color: #ffffff !important;
+  letter-spacing: 0.5px;
+}
+
+.brand-icon {
+  color: #12d640;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+li a {
+  font-size: 17px;
+  font-weight: 600;
+  margin-right: 0.6em;
+  color: #c9d1f5 !important;
+}
+
+li a:hover {
+  color: #ffffff !important;
+  box-shadow: 0 0.4rem 0 -0.2rem #12d640;
+}
+
+.route-text {
+  color: #12d640;
+  font-weight: bold;
+}

@@ -1,0 +1,61 @@
+<div class="container jumbotron hero">
+    <div class="row align-items-center">
+        <div class="col-lg-5 mb-4 mb-lg-0">
+            <div class="text-left" data-aos="fade-right">
+                <h2 class="font-bold text-white custom-font" #typedElement>{{greeting}},</h2>
+                <h1 class="font-bold custom-font-Oswald hero-name">I'm {{ p.name }}</h1>
+                <h3 class="text-white hero-role">
+                    <span #rolesElement></span>
+                </h3>
+                <p class="hero-tagline">
+                    I build test automation that lets teams <strong>ship faster without breaking things</strong> —
+                    from Playwright UI suites and Karate API tests to quality gates in CI/CD.
+                </p>
+
+                <div class="hero-actions">
+                    <a class="btn btn-accent" href="#Contact">
+                        <i class="fas fa-paper-plane mr-2"></i>Hire Me
+                    </a>
+                    <a class="btn btn-ghost" [href]="p.resumePdf" download>
+                        <i class="fas fa-file-download mr-2"></i>Resume
+                    </a>
+                    <a *ngIf="p.linkedin" class="social-icon" target="_blank" rel="noopener" [href]="p.linkedin"
+                        aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a *ngIf="p.github" class="social-icon" target="_blank" rel="noopener" [href]="p.github"
+                        aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-7" data-aos="fade-left">
+            <div class="code-window">
+                <div class="code-window-bar">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-green"></span>
+                    <span class="code-file">sanjay.spec.ts</span>
+                </div>
+                <pre><code class="language-typescript">{{ code }}</code></pre>
+                <div class="code-result">
+                    <i class="fas fa-check-circle"></i> 3 passed <span class="text-muted-light">(chromium · firefox · webkit)</span>
+                </div>
+            </div>
+
+            <div class="contact-info">
+                <a class="contact-item" [href]="'mailto:' + p.email">
+                    <i class="pi pi-envelope contact-icon"></i> {{ p.email }}
+                </a>
+                <a class="contact-item" [href]="'tel:' + p.phoneHref">
+                    <i class="pi pi-phone contact-icon"></i> {{ p.phone }}
+                </a>
+                <span class="contact-item">
+                    <i class="pi pi-map-marker contact-icon"></i> {{ p.location }}
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

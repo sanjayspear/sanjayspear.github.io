@@ -1,0 +1,19 @@
+.skill-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.skill-head h5 {
+  color: #ffffff;
+  font-weight: 600;
+  margin: 0;
+}
+
+.skill-icon {
+  font-size: 1.5rem;
+  color: #12d640;
+  width: 2rem;
+  text-align: center;
+}

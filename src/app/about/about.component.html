@@ -1,0 +1,29 @@
+<div class="section-block" data-aos="fade-up">
+    <h2 class="section-title custom-font">About Me</h2>
+    <p class="section-subtitle">Quality engineering that keeps pace with delivery</p>
+
+    <div class="glass-card about-bio">
+        <p *ngFor="let para of p.about">{{ para }}</p>
+    </div>
+
+    <div class="row stats-row">
+        <div class="col-6 col-md-3 mb-3" *ngFor="let s of p.stats">
+            <div class="stat-card">
+                <div class="stat-value">{{ s.value }}</div>
+                <div class="stat-label">{{ s.label }}</div>
+            </div>
+        </div>
+    </div>
+
+    <h4 class="sub-heading">What I bring to a team</h4>
+    <div class="row">
+        <div class="col-md-6 col-lg-4 mb-4" *ngFor="let s of p.strengths; let i = index" data-aos="zoom-in"
+            [attr.data-aos-delay]="i * 80">
+            <div class="glass-card h-100 strength-card">
+                <i [class]="s.icon + ' strength-icon'"></i>
+                <h5>{{ s.title }}</h5>
+                <p>{{ s.description }}</p>
+            </div>
+        </div>
+    </div>
+</div>

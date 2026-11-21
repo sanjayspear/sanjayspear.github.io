@@ -1,0 +1,47 @@
+.glass {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 24px 8px;
+  margin: 0;
+}
+
+.edu-body {
+  text-align: center;
+}
+
+.edu-img {
+  height: 9rem;
+  margin-bottom: 1rem;
+}
+
+.edu-year {
+  display: inline-block;
+  color: #12d640;
+  border: 1px solid #12d640;
+  border-radius: 999px;
+  padding: 0.1rem 0.8rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.edu-degree {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.edu-inst {
+  color: #aab3d9;
+}
+
+.edu-lang-title {
+  color: #0ebac5;
+  margin-top: 1.25rem;
+}
+
+.video-background {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}

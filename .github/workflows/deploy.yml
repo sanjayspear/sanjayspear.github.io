@@ -1,0 +1,57 @@
+# Builds the portfolio and publishes it to GitHub Pages on every push to `main`.
+# You can also run it by hand: GitHub repo → Actions → "Deploy portfolio" → Run workflow.
+name: Deploy portfolio
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one deployment at a time; a newer push replaces a queued one.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      # For a <username>.github.io repo the site lives at the domain root ("/").
+      # For any other repo name it lives under "/<repo-name>/".
+      - name: Build
+        run: |
+          if [[ "${{ github.event.repository.name }}" == *.github.io ]]; then
+            BASE_HREF=/
+          else
+            BASE_HREF=/${{ github.event.repository.name }}/
+          fi
+          npx ng build --configuration production --base-href "$BASE_HREF"
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/portfolio
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

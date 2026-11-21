@@ -1,0 +1,14 @@
+<div class="section-block" data-aos="flip-left" data-aos-easing="ease-out-cubic">
+    <div class="glass-card resume-cta">
+        <div>
+            <h3 class="resume-title">Want the full picture?</h3>
+            <p class="resume-text">
+                Download my resume for a detailed view of my test automation experience, tools and projects.
+            </p>
+            <small class="resume-updated"><i class="far fa-clock mr-1"></i>Last updated {{ lastUpdated }}</small>
+        </div>
+        <a [href]="p.resumePdf" class="btn btn-accent btn-lg" [attr.download]="fileName">
+            <i class="fas fa-file-download mr-2"></i> Download Resume (PDF)
+        </a>
+    </div>
+</div>

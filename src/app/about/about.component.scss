@@ -1,0 +1,49 @@
+.about-bio p {
+  color: #d5dbf7;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.about-bio p:last-child {
+  margin-bottom: 0;
+}
+
+.stats-row {
+  margin: 2rem 0 1rem;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 1.25rem 0.5rem;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(18, 214, 64, 0.15), rgba(14, 186, 197, 0.15));
+  border: 1px solid rgba(18, 214, 64, 0.3);
+}
+
+.stat-value {
+  font-family: "Oswald", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #12d640;
+}
+
+.stat-label {
+  color: #c9d1f5;
+  font-size: 0.9rem;
+}
+
+.strength-icon {
+  font-size: 1.8rem;
+  color: #0ebac5;
+  margin-bottom: 0.75rem;
+}
+
+.strength-card h5 {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.strength-card p {
+  color: #aab3d9;
+  margin-bottom: 0;
+}

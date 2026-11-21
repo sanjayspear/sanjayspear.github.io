@@ -1,0 +1,23 @@
+<div class="section-block">
+    <h2 class="section-title custom-font" data-aos="fade-up">Key Projects</h2>
+    <p class="section-subtitle" data-aos="fade-up">Enterprise platforms I've helped ship with confidence</p>
+
+    <div class="row">
+        <div class="col-md-6 col-lg-4 mb-4" *ngFor="let proj of p.projects; let i = index" data-aos="fade-up"
+            [attr.data-aos-delay]="(i % 3) * 100">
+            <div class="glass-card h-100 project-card">
+                <div class="project-top">
+                    <span class="domain-badge" [ngClass]="'domain-' + proj.domain.toLowerCase()">
+                        <i [class]="domainIcon(proj.domain)"></i> {{ proj.domain }}
+                    </span>
+                </div>
+                <h5 class="project-name">{{ proj.name }}</h5>
+                <div class="project-company">{{ proj.company }}</div>
+                <p class="project-desc">{{ proj.description }}</p>
+                <div class="chips">
+                    <span class="chip" *ngFor="let t of proj.tags">{{ t }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

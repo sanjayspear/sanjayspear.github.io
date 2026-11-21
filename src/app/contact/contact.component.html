@@ -1,0 +1,41 @@
+<div class="section-block text-center" data-aos="zoom-in">
+    <h2 class="section-title custom-font">Let's Connect</h2>
+    <p class="section-subtitle">
+        Looking for someone to strengthen your test automation or speed up your release pipeline? I'd love to talk.
+    </p>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4 mb-4">
+            <a class="glass-card contact-card" [href]="'mailto:' + p.email">
+                <i class="pi pi-envelope contact-icon"></i>
+                <span class="contact-label">Email</span>
+                <strong class="contact-value">{{ p.email }}</strong>
+            </a>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4">
+            <a class="glass-card contact-card" [href]="'tel:' + p.phoneHref">
+                <i class="pi pi-phone contact-icon"></i>
+                <span class="contact-label">Phone</span>
+                <strong class="contact-value">{{ p.phone }}</strong>
+            </a>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="glass-card contact-card">
+                <i class="pi pi-map-marker contact-icon"></i>
+                <span class="contact-label">Location</span>
+                <strong class="contact-value">{{ p.location }}</strong>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4" *ngIf="p.linkedin">
+            <a class="glass-card contact-card" [href]="p.linkedin" target="_blank" rel="noopener">
+                <i class="pi pi-linkedin contact-icon"></i>
+                <span class="contact-label">LinkedIn</span>
+                <strong class="contact-value">View profile</strong>
+            </a>
+        </div>
+    </div>
+
+    <a class="btn btn-accent btn-lg mt-2" [href]="'mailto:' + p.email + '?subject=Opportunity%20for%20Sanjay'">
+        <i class="fas fa-paper-plane mr-2"></i> Send me a message
+    </a>
+</div>
