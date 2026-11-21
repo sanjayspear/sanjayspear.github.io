@@ -3,11 +3,11 @@
 Personal portfolio website for **Sanjay Y M, Senior QA Automation Engineer**.
 It's a single scrolling page built with **Angular 16**, Bootstrap 4 and PrimeNG, and hosted free on GitHub Pages.
 
-### 🔗 Live site: **https://sanjayspear.github.io/**
+### 🔗 Live site: **https://sanjayspear.github.io/My-Portfolio/**
 
 [![Deploy portfolio](https://github.com/sanjayspear/sanjayspear.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/sanjayspear/sanjayspear.github.io/actions/workflows/deploy.yml)
 
-[![Portfolio home page](docs/screenshots/01-home.jpg)](https://sanjayspear.github.io/)
+[![Portfolio home page](docs/screenshots/01-home.jpg)](https://sanjayspear.github.io/My-Portfolio/)
 
 **Sections:** Home · About · Experience · Projects · Personal Projects · Skills · Education · Resume · Contact
 
@@ -30,11 +30,13 @@ It's a single scrolling page built with **Angular 16**, Bootstrap 4 and PrimeNG,
 
 ## 1. Live site and sharing
 
-**Portfolio URL:** https://sanjayspear.github.io/
+**Portfolio URL:** https://sanjayspear.github.io/My-Portfolio/
 
-> The site used to be at `https://sanjayspear.github.io/My-Portfolio-App/`. Links shared before
-> the move still work, because they forward to the same section at the new address
-> (`src/legacy-redirect/` and `src/404.html`).
+> **Older links still work.** Each of these forwards to the same section at the current address
+> (the forwarding pages are in `site-root/`):
+> - `https://sanjayspear.github.io/` (the site root)
+> - `https://sanjayspear.github.io/My-Portfolio-App/` (the first address)
+> - wrong letter case, such as `/my-portfolio/`, because GitHub Pages addresses are case-sensitive
 
 The site is public, so anyone can open it on a phone or computer without a GitHub account.
 
@@ -47,7 +49,7 @@ Any of these show the live link:
 | **Settings → Pages** (most direct) | Open the repo → **Settings** (top tab) → **Pages** (left sidebar, under *Code and automation*). The top of the page says **"Your site is live at https://…"**. Click **Visit site**, or copy the link. |
 | **Deployments** (repo home page) | On the repo's main page, find **Deployments** in the right-hand sidebar → click **github-pages** → each deployment shows **View deployment** with the live link. |
 | **Actions** | **Actions** tab → open the latest **Deploy portfolio** run (green ✔) → the **deploy** box shows the URL. |
-| **Build it yourself** | This repo is named `<username>.github.io`, so the site is at the domain root: `https://sanjayspear.github.io/`. |
+| **Build it yourself** | The repo `sanjayspear.github.io` publishes the whole `sanjayspear.github.io` site, and the portfolio is in its `/My-Portfolio/` folder. Settings → Pages shows the site root, which forwards to the portfolio. |
 
 > **Tip: show the link on the repo's main page.** On the repo home, click the ⚙️ gear next to
 > **About** (right sidebar) → tick **"Use your GitHub Pages website"** → **Save changes**.
@@ -62,7 +64,7 @@ Any of these show the live link:
 **Ready-to-send message:**
 
 > Hi! I've put together my portfolio. Have a look and let me know what you think:
-> https://sanjayspear.github.io/
+> https://sanjayspear.github.io/My-Portfolio/
 
 **For recruiters, also add the link to:**
 
@@ -70,7 +72,7 @@ Any of these show the live link:
 |---|---|
 | **LinkedIn** | Edit profile → **Contact info → Website** (type: *Portfolio*). You can also add it under **Featured → Add → Link**. |
 | **Resume** | Next to your email and phone in the header. Then run `npm run update-resume` with the new PDF (see [section 7](#7-updating-your-resume-pdf)). |
-| **Email signature** | Add a line such as *Portfolio: https://sanjayspear.github.io/* |
+| **Email signature** | Add a line such as *Portfolio: https://sanjayspear.github.io/My-Portfolio/* |
 | **In person / events** | In Chrome on the live site: **⋮ menu → Cast, save and share → Create QR code**, then download the QR image to print or show on your phone. |
 
 > ℹ️ When you paste the link into WhatsApp, LinkedIn or Slack, it shows a preview card with this
@@ -205,9 +207,12 @@ My-Porfolio-App/
 │   │   ├── Images/ · vedio/                ← images and the education video
 │   │   ├── og-image.jpg          ← link-preview image (WhatsApp, LinkedIn, Slack)
 │   ├── index.html                ← browser tab title, description and link-preview tags
-│   ├── 404.html                  ← forwards unknown/old addresses to the right page
-│   ├── legacy-redirect/          ← keeps the old /My-Portfolio-App/ link working
 │   └── styles.scss               ← shared colours, cards, buttons
+├── site-root/                    ← pages at the site root, outside /My-Portfolio/:
+│   ├── index.html                ←   sanjayspear.github.io → /My-Portfolio/
+│   ├── 404.html                  ←   forwards old, mistyped or wrong-case links
+│   └── My-Portfolio-App/         ←   keeps the first address working
+├── scripts/build-site.mjs        ← assembles the published site (`npm run build:site`)
 ├── scripts/update-resume.mjs     ← powers `npm run update-resume`
 └── package.json
 ```
@@ -369,11 +374,16 @@ Add an entry to the `personalProjects` list (cards appear in list order):
 ## 9. Build and deploy
 
 ```bash
-npm run build
+npm run build:site
 ```
 
-This creates the finished website in `dist/portfolio/`. You can upload that folder to any static
-host (Netlify, Vercel, GitHub Pages, …).
+This builds the app for the `/My-Portfolio/` address and assembles the complete website in
+`dist/site/`: the app in `dist/site/My-Portfolio/`, plus the forwarding pages from `site-root/`.
+That's exactly what GitHub Pages publishes.
+
+> **Changing the address** (e.g. to `/portfolio/`): change `SITE_PATH` in
+> `scripts/build-site.mjs` **and** `"baseHref"` (production) in `angular.json`, then update the
+> URLs in `src/index.html`. The build stops with an error if the first two don't match.
 
 ### Publishing to GitHub Pages (automatic)
 
@@ -388,9 +398,7 @@ git push
 ```
 
 - Watch progress: GitHub repo → **Actions** tab (green ✔ = live).
-- Live URL: **https://&lt;username&gt;.github.io** (repo named `<username>.github.io`).
-  Any other repo name is published at `https://<username>.github.io/<repo-name>/`, and the
-  workflow sets the right base path automatically.
+- Live URL: **https://sanjayspear.github.io/My-Portfolio/**
 - Re-run without changes: **Actions → Deploy portfolio → Run workflow**.
 
 You only need to push when **you** change content or the resume. Years and durations
@@ -416,6 +424,7 @@ update on the live site by themselves.
 | Command | What it does |
 |---|---|
 | `npm start` | Run locally with live reload |
-| `npm run build` | Production build into `dist/portfolio/` |
+| `npm run build:site` | Production build of the whole site into `dist/site/` (what gets published) |
+| `npm run build` | App-only production build into `dist/portfolio/` |
 | `npm run update-resume -- <file.pdf>` | Replace the resume PDF and its "Last updated" date |
 | `npm test` | Run unit tests (Karma) |

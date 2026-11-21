@@ -27,13 +27,7 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              "src/404.html",
-              {
-                "glob": "index.html",
-                "input": "src/legacy-redirect",
-                "output": "My-Portfolio-App"
-              }
+              "src/assets"
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.css",
@@ -67,7 +61,8 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "baseHref": "/My-Portfolio/"
             },
             "development": {
               "buildOptimizer": true,

@@ -289,7 +289,7 @@ const personalProjects: PersonalProject[] = [
     tech: ['Angular', 'TypeScript', 'SCSS', 'Bootstrap', 'GitHub Actions'],
     quality: 'GitHub Actions CI/CD to GitHub Pages on every push',
     repo: `${GITHUB}/sanjayspear.github.io`,
-    demo: 'https://sanjayspear.github.io/',
+    demo: 'https://sanjayspear.github.io/My-Portfolio/',
   },
 ];
 

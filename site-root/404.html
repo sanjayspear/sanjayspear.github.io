@@ -1,0 +1,42 @@
+<!doctype html>
+<!--
+  GitHub Pages serves this for any address on sanjayspear.github.io that doesn't exist.
+  (Other repos' project sites, e.g. /PhonicPal/, are served by GitHub before this page.)
+  It forwards to the right place in the portfolio at /__SITE_PATH__/:
+    /my-portfolio/...           → /__SITE_PATH__/...   (wrong letter case)
+    /My-Portfolio-App/...       → /__SITE_PATH__/...   (first address)
+    /assets/...                 → /__SITE_PATH__/assets/...   (links from when it was at the root)
+    anything else               → /__SITE_PATH__/
+  __SITE_PATH__ is filled in by scripts/build-site.mjs.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Page not found | Sanjay Y M</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <script>
+    (function () {
+      var site = '/__SITE_PATH__/';
+      var path = location.pathname;
+      var lower = path.toLowerCase();
+      var rest = null;
+
+      if (lower.indexOf(site.toLowerCase()) === 0 && path.indexOf(site) !== 0) {
+        rest = path.slice(site.length);                       // wrong letter case
+      } else if (lower.indexOf('/my-portfolio-app/') === 0) {
+        rest = path.slice('/my-portfolio-app/'.length);       // first address
+      } else if (lower === site.toLowerCase().slice(0, -1) ) {
+        rest = '';                                            // missing trailing slash, wrong case
+      } else if (lower.indexOf('/assets/') === 0) {
+        rest = path.slice(1);                                 // old root-level asset links
+      }
+      // Anything else (including a missing page inside the portfolio) goes to the home page.
+      location.replace(site + (rest || '') + (rest ? location.search : '') + location.hash);
+    })();
+  </script>
+</head>
+<body style="background:#050823;color:#d5dbf7;font-family:sans-serif;text-align:center;padding-top:20vh">
+  <p>Page not found. Go to <a href="/__SITE_PATH__/" style="color:#12d640">the portfolio</a>.</p>
+</body>
+</html>
