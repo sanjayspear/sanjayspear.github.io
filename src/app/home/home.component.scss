@@ -1,6 +1,10 @@
 .hero {
   background: transparent;
   padding-top: 4rem;
+  // Bootstrap's .jumbotron adds 4rem (64px) of bottom padding on screens ≥576px, which,
+  // with its 2rem margin and About's own top padding, left a 160px gap under the hero.
+  // 1.5rem + 2rem margin matches the space below every other section (≈120px to the next title).
+  padding-bottom: 1.5rem;
 }
 
 .hero-name {
