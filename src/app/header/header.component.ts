@@ -21,15 +21,12 @@ export class HeaderComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    const isActive = sessionStorage.getItem('active');
-    if (isActive) {
-      this.activeRoute = isActive;
-    }
+    // Highlight whichever section is on screen at load (e.g. after a reload mid-page).
+    setTimeout(() => this.updateActiveRouteBasedOnScroll());
   }
 
   routeChange(value: string) {
     this.activeRoute = value;
-    sessionStorage.setItem('active', value);
   }
 
   @HostListener('window:scroll', [])
@@ -37,20 +34,20 @@ export class HeaderComponent implements OnInit {
     this.updateActiveRouteBasedOnScroll();
   }
 
+  /** The active section is the last one whose top has scrolled past the header. */
   updateActiveRouteBasedOnScroll() {
-    for (let item of this.routeData) {
+    const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+    if (atBottom) {
+      this.activeRoute = this.routeData[this.routeData.length - 1].name;
+      return;
+    }
+    let active = this.routeData[0].name;
+    for (const item of this.routeData) {
       const section = document.getElementById(item.name);
-      if (section) {
-        const rect = section.getBoundingClientRect();
-        // If the top is in the upper third of the screen
-        if (rect.top >= 0 && rect.top < window.innerHeight / 2) {
-          if (this.activeRoute !== item.name) {
-            this.activeRoute = item.name;
-            sessionStorage.setItem('active', item.name);
-          }
-          break; // Exit loop once the first match is found
-        }
+      if (section && section.getBoundingClientRect().top <= 120) {
+        active = item.name;
       }
     }
+    this.activeRoute = active;
   }
 }

@@ -1,7 +1,13 @@
 # Sanjay Y M — Portfolio
 
 Personal portfolio website for **Sanjay Y M, Senior QA Automation Engineer**.
-It's a single scrolling page built with **Angular 16**, Bootstrap 4 and PrimeNG.
+It's a single scrolling page built with **Angular 16**, Bootstrap 4 and PrimeNG, and hosted free on GitHub Pages.
+
+### 🔗 Live site: **https://sanjayspear.github.io/My-Portfolio-App/**
+
+[![Deploy portfolio](https://github.com/sanjayspear/My-Portfolio-App/actions/workflows/deploy.yml/badge.svg)](https://github.com/sanjayspear/My-Portfolio-App/actions/workflows/deploy.yml)
+
+[![Portfolio home page](docs/screenshots/01-home.jpg)](https://sanjayspear.github.io/My-Portfolio-App/)
 
 **Sections:** Home · About · Experience · Projects · Skills · Education · Resume · Contact
 
@@ -9,17 +15,144 @@ It's a single scrolling page built with **Angular 16**, Bootstrap 4 and PrimeNG.
 
 ## Contents
 
-1. [Quick start](#1-quick-start)
-2. [Where everything lives](#2-where-everything-lives)
-3. [What updates itself](#3-what-updates-itself)
-4. [Updating your resume PDF](#4-updating-your-resume-pdf)
-5. [Updating content (jobs, projects, skills, contact)](#5-updating-content)
-6. [Build and deploy](#6-build-and-deploy)
-7. [Troubleshooting](#7-troubleshooting)
+1. [Live site and sharing](#1-live-site-and-sharing)
+2. [Screenshots](#2-screenshots)
+3. [Tech stack](#3-tech-stack)
+4. [Quick start](#4-quick-start)
+5. [Where everything lives](#5-where-everything-lives)
+6. [What updates itself](#6-what-updates-itself)
+7. [Updating your resume PDF](#7-updating-your-resume-pdf)
+8. [Updating content (jobs, projects, skills, contact)](#8-updating-content)
+9. [Build and deploy](#9-build-and-deploy)
+10. [Troubleshooting](#10-troubleshooting)
 
 ---
 
-## 1. Quick start
+## 1. Live site and sharing
+
+**Portfolio URL:** https://sanjayspear.github.io/My-Portfolio-App/
+
+The site is public, so anyone can open it on a phone or computer without a GitHub account.
+
+### Getting the URL from GitHub
+
+Any of these show the live link:
+
+| Where on GitHub | Steps |
+|---|---|
+| **Settings → Pages** (most direct) | Open the repo → **Settings** (top tab) → **Pages** (left sidebar, under *Code and automation*). The top of the page says **"Your site is live at https://…"**. Click **Visit site**, or copy the link. |
+| **Deployments** (repo home page) | On the repo's main page, find **Deployments** in the right-hand sidebar → click **github-pages** → each deployment shows **View deployment** with the live link. |
+| **Actions** | **Actions** tab → open the latest **Deploy portfolio** run (green ✔) → the **deploy** box shows the URL. |
+| **Build it yourself** | The pattern is `https://<username>.github.io/<repo-name>/`, so here it's `https://sanjayspear.github.io/My-Portfolio-App/`. |
+
+> **Tip: show the link on the repo's main page.** On the repo home, click the ⚙️ gear next to
+> **About** (right sidebar) → tick **"Use your GitHub Pages website"** → **Save changes**.
+> The live link then appears at the top of the repository for anyone who visits it.
+
+### Sharing the link
+
+1. Copy the URL from one of the places above. In Chrome you can also click the address bar on
+   the live site and press `Cmd + C`.
+2. Paste it (`Cmd + V`) into WhatsApp, email, SMS, LinkedIn, Slack, or wherever you're sending it.
+
+**Ready-to-send message:**
+
+> Hi! I've put together my portfolio. Have a look and let me know what you think:
+> https://sanjayspear.github.io/My-Portfolio-App/
+
+**For recruiters, also add the link to:**
+
+| Place | How |
+|---|---|
+| **LinkedIn** | Edit profile → **Contact info → Website** (type: *Portfolio*). You can also add it under **Featured → Add → Link**. |
+| **Resume** | Next to your email and phone in the header. Then run `npm run update-resume` with the new PDF (see [section 7](#7-updating-your-resume-pdf)). |
+| **Email signature** | Add a line such as *Portfolio: https://sanjayspear.github.io/My-Portfolio-App/* |
+| **In person / events** | In Chrome on the live site: **⋮ menu → Cast, save and share → Create QR code**, then download the QR image to print or show on your phone. |
+
+> ℹ️ WhatsApp and Slack show the page title and description when you paste the link, but no
+> preview image yet, because no social preview image is set.
+
+---
+
+## 2. Screenshots
+
+Captured from the live site (desktop, 1440 px wide).
+
+**Home:** a typed role headline and a Playwright test written about me, with a "3 passed" result.
+![Home](docs/screenshots/01-home.jpg)
+
+**About:** summary, auto-calculated stats and core strengths.
+![About](docs/screenshots/02-about.jpg)
+
+**Experience:** a timeline with auto-calculated durations. The current role is marked green.
+![Experience](docs/screenshots/03-experience.jpg)
+
+**Key Projects:** enterprise projects tagged by domain and tools.
+![Projects](docs/screenshots/04-projects.jpg)
+
+**Technical Skills:** grouped toolkit.
+![Skills](docs/screenshots/05-skills.jpg)
+
+**Education and Resume download:** shows the "Last updated" month automatically.
+![Education and Resume](docs/screenshots/06-education-resume.jpg)
+
+**Contact:** clickable email and phone.
+![Contact](docs/screenshots/07-contact.jpg)
+
+> To refresh these after a redesign, take new screenshots of the live site and save them over
+> the files in `docs/screenshots/`, keeping the same names.
+
+---
+
+## 3. Tech stack
+
+### Application
+
+| Layer | Technology | Used for |
+|---|---|---|
+| Framework | **Angular 16.2** (NgModule-based) | Components, templates, data binding |
+| Language | **TypeScript 5.1** | All application code, typed content model in `profile.ts` |
+| Reactive runtime | RxJS 7.8, Zone.js 0.13 | Angular's change detection and async handling |
+| Styling | **SCSS**, **Bootstrap 4.6** | Layout grid, navbar, responsive breakpoints, custom dark "glass" theme |
+| UI library | PrimeNG 17, PrimeIcons 7, PrimeFlex 3 | Icons (email, phone, map marker) and utility classes |
+| Icons | Font Awesome 5 (CDN) | Section, skill and domain icons |
+| Fonts | Google Fonts: *Playwrite GB S*, *Oswald* | Section headings and the name/stat typography |
+| Animations | **AOS 2.3** (Animate On Scroll) | Fade, zoom and flip reveals while scrolling |
+| Typing effect | **Typed.js 2.1** | Greeting and rotating job titles on Home |
+| Code highlighting | **highlight.js 11** (TypeScript grammar only) | The `sanjay.spec.ts` code window |
+| Navbar behaviour | jQuery 3.7 and the Bootstrap JS bundle | Mobile menu collapse/expand |
+
+### Build, test and tooling
+
+| Tool | Used for |
+|---|---|
+| **Angular CLI 16** (webpack builder) | Dev server with live reload, production builds, bundle budgets |
+| **Node.js and npm** | Dependency management and scripts (`start`, `build`, `update-resume`) |
+| Custom Node script: `scripts/update-resume.mjs` | Validates and swaps the resume PDF and stamps the "Last updated" date |
+| Karma and Jasmine | Unit-test runner (Angular defaults) |
+| **VS Code** | Editor (recommended extensions in `.vscode/`) |
+| **Git and GitHub CLI (`gh`)** | Version control, repo creation and authentication |
+
+### Hosting and CI/CD
+
+| Service | Used for |
+|---|---|
+| **GitHub Pages** | Free static hosting of the built site |
+| **GitHub Actions** (`.github/workflows/deploy.yml`) | On every push to `main`: `npm ci`, then production `ng build` with the right base path, then upload the artifact, then deploy to Pages |
+| Actions used | `actions/checkout`, `actions/setup-node` (Node 18), `actions/upload-pages-artifact`, `actions/deploy-pages` |
+
+### Design approach
+
+- **Content as data:** every piece of personal content is in one typed file
+  (`src/app/data/profile.ts`). Components only render it.
+- **Never stale:** years of experience, job durations, counts and the copyright year are
+  calculated in the browser from dates (`src/app/data/date-utils.ts`).
+- **Lean bundle:** highlight.js loads only the TypeScript grammar. The main bundle is about 350 KB
+  (about 95 KB gzipped).
+
+---
+
+## 4. Quick start
 
 **Needs:** [Node.js](https://nodejs.org) (LTS recommended) and VS Code.
 
@@ -39,7 +172,7 @@ The page reloads by itself whenever you save a file. Press `Ctrl + C` in the ter
 
 ---
 
-## 2. Where everything lives
+## 5. Where everything lives
 
 ```
 My-Porfolio-App/
@@ -80,7 +213,7 @@ const CI_CD_PLATFORMS = ['Jenkins', 'Azure DevOps', 'Harness'];
 
 ---
 
-## 3. What updates itself
+## 6. What updates itself
 
 These are calculated in the visitor's browser each time the page loads, so they stay
 correct **without editing or redeploying anything**:
@@ -96,7 +229,7 @@ correct **without editing or redeploying anything**:
 
 ---
 
-## 4. Updating your resume PDF
+## 7. Updating your resume PDF
 
 ### Recommended: one command
 
@@ -118,7 +251,7 @@ correct **without editing or redeploying anything**:
        "Last updated" on the site set to 2026-11
    ```
 
-4. Check it at http://localhost:4200/#Resume, then [build and deploy](#6-build-and-deploy).
+4. Check it at http://localhost:4200/#Resume, then [build and deploy](#9-build-and-deploy).
 
 **What the command does:**
 - Checks that the file exists and really is a PDF. If anything is wrong it stops and changes nothing.
@@ -132,7 +265,7 @@ correct **without editing or redeploying anything**:
 
 ---
 
-## 5. Updating content
+## 8. Updating content
 
 All of these are edits to `src/app/data/profile.ts`. Save the file and the browser updates.
 Dates always use the format **`'YYYY-MM'`**, e.g. `'2027-03'` for March 2027.
@@ -194,7 +327,7 @@ A new domain name works too. It gets a default briefcase icon, and the Domains s
 
 ---
 
-## 6. Build and deploy
+## 9. Build and deploy
 
 ```bash
 npm run build
@@ -226,7 +359,7 @@ update on the live site by themselves.
 
 ---
 
-## 7. Troubleshooting
+## 10. Troubleshooting
 
 | Problem | Fix |
 |---|---|
@@ -236,7 +369,8 @@ update on the live site by themselves.
 | Port 4200 already in use | Stop the other terminal running `npm start`, or run `npx ng serve --port 4300` |
 | Page is blank after an edit | Look at the terminal running `npm start`. It shows the exact file and line, usually a missing comma, quote or bracket in `profile.ts` |
 | Old resume still downloads | Your browser has cached it. Hard refresh with `Cmd + Shift + R` |
-| Deployed site loads without styles on GitHub Pages | Deploy with `--base-href=/<repo-name>/` (see section 6) |
+| Live site didn't change after a push | Open the **Actions** tab. A red ✖ means the build failed, so click it to see the error. Then hard refresh the site with `Cmd + Shift + R` |
+| Live site shows no styles or a blank page | The workflow sets the base path from the repo name automatically. If you renamed the repo, push any change (or **Actions → Deploy portfolio → Run workflow**) to rebuild |
 
 ### Other commands
 
