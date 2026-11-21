@@ -10,14 +10,16 @@ export class HeaderComponent implements OnInit {
   name = PROFILE.name;
   activeRoute = 'Home';
   routeData = [
-    { id: 1, name: 'Home' },
-    { id: 2, name: 'About' },
-    { id: 3, name: 'Experience' },
-    { id: 4, name: 'Projects' },
-    { id: 5, name: 'Skills' },
-    { id: 6, name: 'Education' },
-    { id: 7, name: 'Resume' },
-    { id: 8, name: 'Contact' }
+    // `name` is the section's element id in app.component.html; `label` is the menu text.
+    { id: 1, name: 'Home', label: 'Home' },
+    { id: 2, name: 'About', label: 'About' },
+    { id: 3, name: 'Experience', label: 'Experience' },
+    { id: 4, name: 'Projects', label: 'Projects' },
+    { id: 5, name: 'PersonalProjects', label: 'Personal Projects' },
+    { id: 6, name: 'Skills', label: 'Skills' },
+    { id: 7, name: 'Education', label: 'Education' },
+    { id: 8, name: 'Resume', label: 'Resume' },
+    { id: 9, name: 'Contact', label: 'Contact' }
   ];
 
   ngOnInit(): void {

@@ -13,7 +13,7 @@
                 <li *ngFor="let item of routeData" class="nav-item"
                     [ngClass]="activeRoute === item.name ? 'active' : ''" (click)="routeChange(item.name)">
                     <a class="nav-link" href="{{'#'+item.name}}">
-                        <span [ngClass]="activeRoute === item.name ? 'route-text' : ''">{{item.name}}</span>
+                        <span [ngClass]="activeRoute === item.name ? 'route-text' : ''">{{item.label}}</span>
                     </a>
                 </li>
             </ul>

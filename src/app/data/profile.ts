@@ -42,6 +42,22 @@ export interface Stat { value: string; label: string; }
 export interface Project { name: string; domain: string; company: string; description: string; tags: string[]; }
 export interface SkillGroup { title: string; icon: string; items: string[]; }
 export interface Strength { title: string; icon: string; description: string; }
+export interface PersonalProject {
+  name: string;
+  /** Short label shown as a badge, e.g. 'Web App', 'Mobile App'. */
+  type: string;
+  icon: string;
+  tagline: string;
+  highlights: string[];
+  tech: string[];
+  /** Testing / CI facts — shown with a check mark. Leave empty if none. */
+  quality?: string;
+  /** Optional note, e.g. co-authors. */
+  note?: string;
+  repo: string;
+  /** Public live URL. Leave empty to hide the "Live demo" button. */
+  demo?: string;
+}
 
 /** What you write for each job. */
 interface ExperienceInput {
@@ -170,6 +186,114 @@ const projects: Project[] = [
   },
 ];
 
+/** GitHub profile — repo links below are built from this. */
+const GITHUB = 'https://github.com/sanjayspear';
+
+/**
+ * Personal projects (the "Personal Projects" section). Listed in display order.
+ * To add one, copy an entry and fill it in. `demo` must be a PUBLIC link — open it in a
+ * private/incognito window first to make sure it works for people who aren't logged in.
+ */
+const personalProjects: PersonalProject[] = [
+  {
+    name: 'Search Around',
+    type: 'AI · Mobile App',
+    icon: 'fas fa-search-location',
+    tagline: 'AI-first, intent-driven discovery app for Android and iOS: temples to tech parks, salons to shows.',
+    highlights: [
+      'Every screen is generated from user intent: utterance → on-device intent model → validated UI patch → Compose renderer. Works offline.',
+      'Kotlin Multiplatform client backed by Spring Boot microservices and a Python AI server, with Book Now hand-off to ticketing partners.',
+    ],
+    tech: ['Kotlin Multiplatform', 'Compose Multiplatform', 'On-device AI', 'Spring Boot', 'Python', 'Docker'],
+    quality: '75 test files across Kotlin, Spring Boot (Testcontainers) and Python (pytest) · CI pipeline',
+    repo: `${GITHUB}/Whatsanew`,
+  },
+  {
+    name: 'Resume Builder',
+    type: 'Web App',
+    icon: 'fas fa-file-alt',
+    tagline: 'Build a professional resume in the browser and download an ATS-readable, text-based PDF.',
+    highlights: [
+      'Live multi-page PDF preview, 4 templates, rich-text editing, design controls and company logos.',
+      'Local-first and private: no account or server, auto-save, and export/import backups.',
+    ],
+    tech: ['Next.js', 'React', 'TypeScript', 'React-PDF', 'TipTap', 'React Hook Form', 'Zod'],
+    quality: 'Schema validation with Zod · ESLint + strict TypeScript · automated deploy workflow',
+    repo: `${GITHUB}/resume-builder`,
+    // Add the live link once it's public (it currently asks visitors to log in to Vercel):
+    demo: '',
+  },
+  {
+    name: 'PhonicsPal',
+    type: 'Web App',
+    icon: 'fas fa-book-reader',
+    tagline: 'Interactive English phonics and reading practice for teachers, parents and young learners.',
+    highlights: [
+      'Text-to-speech with live word highlighting, guided phonics topics and reading from uploaded PDFs.',
+      'Sign-up gate with local accounts or Firebase and Google sign-in, plus light and dark themes.',
+    ],
+    tech: ['JavaScript', 'HTML5', 'CSS3', 'Web Speech API', 'PDF.js', 'Firebase Auth'],
+    note: 'Co-created with Ashok Kumar S',
+    repo: `${GITHUB}/PhonicPal`,
+    demo: 'https://sanjayspear.github.io/PhonicPal/',
+  },
+  {
+    name: 'PhonicsPal Mobile',
+    type: 'Cross-platform App',
+    icon: 'fas fa-mobile-alt',
+    tagline: 'Rebuild of PhonicsPal for iOS, Android and Web from one TypeScript codebase.',
+    highlights: [
+      'Monorepo with shared core, UI, speech and API packages, plus role-based journeys for Teacher, Parent and Solo.',
+      'Platform-specific text-to-speech adapters behind a single SpeechEngine interface.',
+    ],
+    tech: ['React Native', 'Expo', 'Expo Router', 'TypeScript', 'Monorepo'],
+    quality: 'Automated GitHub Pages deploy of the web build',
+    repo: `${GITHUB}/phonicspal-rn`,
+    demo: 'https://sanjayspear.github.io/phonicspal-rn/',
+  },
+  {
+    name: 'Greetings',
+    type: 'PWA',
+    icon: 'fas fa-gift',
+    tagline: 'Animated greeting-card maker for birthdays, anniversaries and any occasion.',
+    highlights: [
+      'Canvas-rendered animated cards with generated music, exported as MP4/WebM video or an interactive surprise file.',
+      'Installable offline PWA that shares straight to WhatsApp on phones, with a special-dates tab.',
+    ],
+    tech: ['TypeScript', 'Vite', 'Canvas API', 'PWA', 'Vitest'],
+    quality: 'Vitest unit tests · CI runs lint → type-check → test → build → deploy',
+    repo: `${GITHUB}/GreetingsApp`,
+    demo: 'https://sanjayspear.github.io/GreetingsApp/',
+  },
+  {
+    name: 'Penny Log',
+    type: 'Web App',
+    icon: 'fas fa-wallet',
+    tagline: 'Free, private expense tracker that runs entirely in the browser.',
+    highlights: [
+      'Monthly totals and comparisons, category budgets, recurring expenses, charts and CSV export.',
+      'Zero dependencies: a single HTML file with light and dark mode, and data kept on your device.',
+    ],
+    tech: ['JavaScript', 'HTML5', 'CSS3', 'Local Storage'],
+    repo: `${GITHUB}/penny-log`,
+    demo: 'https://sanjayspear.github.io/penny-log/',
+  },
+  {
+    name: 'This Portfolio',
+    type: 'Web App',
+    icon: 'fas fa-vial',
+    tagline: 'The site you are on: a QA-themed portfolio with content that keeps itself up to date.',
+    highlights: [
+      'Years of experience, job durations and counts are calculated from dates, so the content never goes stale.',
+      'All content in one typed data file, plus a one-command resume update script.',
+    ],
+    tech: ['Angular', 'TypeScript', 'SCSS', 'Bootstrap', 'GitHub Actions'],
+    quality: 'GitHub Actions CI/CD to GitHub Pages on every push',
+    repo: `${GITHUB}/My-Portfolio-App`,
+    demo: 'https://sanjayspear.github.io/My-Portfolio-App/',
+  },
+];
+
 const domains = Array.from(new Set(projects.map((p) => p.domain)));
 
 export const PROFILE = {
@@ -182,7 +306,7 @@ export const PROFILE = {
   phoneHref: '+918904528460',
   /** Add your profile URLs here — empty values are hidden on the site. */
   linkedin: '',
-  github: '',
+  github: GITHUB,
 
   /** Calculated: completed years since CAREER_START_DATE. */
   experienceYears: YEARS,
@@ -253,6 +377,7 @@ export const PROFILE = {
   })),
 
   projects,
+  personalProjects,
   domains,
   ciCdPlatforms: CI_CD_PLATFORMS,
 

@@ -9,7 +9,7 @@ It's a single scrolling page built with **Angular 16**, Bootstrap 4 and PrimeNG,
 
 [![Portfolio home page](docs/screenshots/01-home.jpg)](https://sanjayspear.github.io/My-Portfolio-App/)
 
-**Sections:** Home · About · Experience · Projects · Skills · Education · Resume · Contact
+**Sections:** Home · About · Experience · Projects · Personal Projects · Skills · Education · Resume · Contact
 
 ---
 
@@ -90,14 +90,17 @@ Captured from the live site (desktop, 1440 px wide).
 **Key Projects:** enterprise projects tagged by domain and tools.
 ![Projects](docs/screenshots/04-projects.jpg)
 
+**Personal Projects:** side projects with live demo and code links, plus testing/CI facts for each.
+![Personal Projects](docs/screenshots/05-personal-projects.jpg)
+
 **Technical Skills:** grouped toolkit.
-![Skills](docs/screenshots/05-skills.jpg)
+![Skills](docs/screenshots/06-skills.jpg)
 
 **Education and Resume download:** shows the "Last updated" month automatically.
-![Education and Resume](docs/screenshots/06-education-resume.jpg)
+![Education and Resume](docs/screenshots/07-education-resume.jpg)
 
-**Contact:** clickable email and phone.
-![Contact](docs/screenshots/07-contact.jpg)
+**Contact:** clickable email, phone and GitHub.
+![Contact](docs/screenshots/08-contact.jpg)
 
 > To refresh these after a redesign, take new screenshots of the live site and save them over
 > the files in `docs/screenshots/`, keeping the same names.
@@ -184,7 +187,8 @@ My-Porfolio-App/
 │   │   ├── home/                 ← hero section + Playwright code snippet
 │   │   ├── about/                ← bio, stat cards, "What I bring" cards
 │   │   ├── experience/           ← job timeline
-│   │   ├── projects/             ← project cards
+│   │   ├── projects/             ← work project cards
+│   │   ├── personal-projects/    ← personal project cards (demo + code links)
 │   │   ├── skills/               ← skill groups
 │   │   ├── education/            ← degree + languages
 │   │   ├── resume/               ← download button
@@ -310,13 +314,38 @@ Add an entry to the `projects` list:
 
 A new domain name works too. It gets a default briefcase icon, and the Domains stat counts it.
 
+### Adding a personal project
+
+Add an entry to the `personalProjects` list (cards appear in list order):
+
+```ts
+{
+  name: 'My New App',
+  type: 'Web App',                     // badge text: Web App, Mobile App, PWA, …
+  icon: 'fas fa-rocket',               // any Font Awesome 5 icon
+  tagline: 'One sentence about what it does.',
+  highlights: [
+    'Most impressive feature or technical point.',
+    'Second point.',
+  ],
+  tech: ['React', 'TypeScript'],
+  quality: '40 Playwright tests · CI on every push',   // optional; testing/CI facts
+  repo: `${GITHUB}/my-new-app`,
+  demo: 'https://sanjayspear.github.io/my-new-app/',    // optional; leave '' to hide
+},
+```
+
+> ⚠️ Only add a `demo` link that works for people who **aren't logged in**. Open it in a
+> private/incognito window first (`Cmd + Shift + N` in Chrome). For example, Resume Builder's demo
+> is hidden for now because its Vercel link asks visitors to log in.
+
 ### Other common edits
 
 | I want to… | In `profile.ts` |
 |---|---|
 | Add a skill | Add it to the matching group's `items` in `skills` |
 | Add a CI/CD platform | Add it to `CI_CD_PLATFORMS` (QUICK UPDATE block) |
-| Add **LinkedIn / GitHub** | Fill in `linkedin: 'https://…'` / `github: 'https://…'`. The icons and contact card appear only when these are set |
+| Add **LinkedIn** | Fill in `linkedin: 'https://…'`. The icon and contact card appear only when it's set. GitHub is already set from `GITHUB` |
 | Change phone, email, location | `email`, `phone` (shown), `phoneHref` (digits for the call link), `location` |
 | Edit the bio | the `about` paragraphs. Keep `${YEARS}+` wherever you mention experience so it stays automatic |
 | Change the rotating titles on Home | the `roles` list |

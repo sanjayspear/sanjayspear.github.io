@@ -14,6 +14,7 @@ import { ContactComponent } from './contact/contact.component';
 import { EducationComponent } from './education/education.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ExperienceComponent } from './experience/experience.component';
+import { PersonalProjectsComponent } from './personal-projects/personal-projects.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ExperienceComponent } from './experience/experience.component';
     ResumeComponent,
     ContactComponent,
     EducationComponent,
-    ExperienceComponent
+    ExperienceComponent,
+    PersonalProjectsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,51 @@
+<div class="section-block">
+    <h2 class="section-title custom-font" data-aos="fade-up">Personal Projects</h2>
+    <p class="section-subtitle" data-aos="fade-up">Things I build outside work, from AI mobile apps to everyday tools</p>
+
+    <div class="row">
+        <div class="col-lg-6 mb-4" *ngFor="let proj of projects; let i = index" data-aos="fade-up"
+            [attr.data-aos-delay]="(i % 2) * 100">
+            <div class="glass-card h-100 pp-card">
+                <div class="pp-head">
+                    <div class="pp-icon"><i [class]="proj.icon"></i></div>
+                    <div class="pp-title">
+                        <h5>{{ proj.name }}</h5>
+                        <span class="pp-type">{{ proj.type }}</span>
+                    </div>
+                </div>
+
+                <p class="pp-tagline">{{ proj.tagline }}</p>
+                <ul class="pp-highlights">
+                    <li *ngFor="let h of proj.highlights">{{ h }}</li>
+                </ul>
+
+                <div class="chips">
+                    <span class="chip" *ngFor="let t of proj.tech">{{ t }}</span>
+                </div>
+
+                <p class="pp-quality" *ngIf="proj.quality">
+                    <i class="fas fa-check-circle"></i> {{ proj.quality }}
+                </p>
+                <p class="pp-note" *ngIf="proj.note">
+                    <i class="fas fa-user-friends"></i> {{ proj.note }}
+                </p>
+
+                <div class="pp-actions">
+                    <a *ngIf="proj.demo" class="btn btn-accent btn-sm" [href]="proj.demo" target="_blank"
+                        rel="noopener">
+                        <i class="fas fa-external-link-alt mr-1"></i> Live demo
+                    </a>
+                    <a class="btn btn-ghost btn-sm" [href]="proj.repo" target="_blank" rel="noopener">
+                        <i class="fab fa-github mr-1"></i> Code
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center" *ngIf="github">
+        <a class="btn btn-ghost" [href]="github" target="_blank" rel="noopener">
+            <i class="fab fa-github mr-2"></i> More on GitHub
+        </a>
+    </div>
+</div>

@@ -26,6 +26,13 @@
                 <strong class="contact-value">{{ p.location }}</strong>
             </div>
         </div>
+        <div class="col-md-6 col-lg-4 mb-4" *ngIf="p.github">
+            <a class="glass-card contact-card" [href]="p.github" target="_blank" rel="noopener">
+                <i class="pi pi-github contact-icon"></i>
+                <span class="contact-label">GitHub</span>
+                <strong class="contact-value">{{ p.github.replace('https://', '') }}</strong>
+            </a>
+        </div>
         <div class="col-md-6 col-lg-4 mb-4" *ngIf="p.linkedin">
             <a class="glass-card contact-card" [href]="p.linkedin" target="_blank" rel="noopener">
                 <i class="pi pi-linkedin contact-icon"></i>
