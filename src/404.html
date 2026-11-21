@@ -1,0 +1,23 @@
+<!doctype html>
+<!--
+  GitHub Pages serves this for any address that doesn't exist on sanjayspear.github.io.
+  Old links under /My-Portfolio-App/... (e.g. the resume PDF) are forwarded to the same
+  file at the new address; anything else goes to the portfolio home page.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Page not found | Sanjay Y M</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <script>
+    var oldPrefix = '/My-Portfolio-App/';
+    var path = location.pathname;
+    var target = path.indexOf(oldPrefix) === 0 ? '/' + path.slice(oldPrefix.length) : '/';
+    location.replace(target + location.search + location.hash);
+  </script>
+</head>
+<body style="background:#050823;color:#d5dbf7;font-family:sans-serif;text-align:center;padding-top:20vh">
+  <p>Page not found. Go to <a href="/" style="color:#12d640">the portfolio home page</a>.</p>
+</body>
+</html>

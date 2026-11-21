@@ -288,8 +288,8 @@ const personalProjects: PersonalProject[] = [
     ],
     tech: ['Angular', 'TypeScript', 'SCSS', 'Bootstrap', 'GitHub Actions'],
     quality: 'GitHub Actions CI/CD to GitHub Pages on every push',
-    repo: `${GITHUB}/My-Portfolio-App`,
-    demo: 'https://sanjayspear.github.io/My-Portfolio-App/',
+    repo: `${GITHUB}/sanjayspear.github.io`,
+    demo: 'https://sanjayspear.github.io/',
   },
 ];
 
@@ -304,7 +304,7 @@ export const PROFILE = {
   phone: '+91 89045 28460',
   phoneHref: '+918904528460',
   /** Add your profile URLs here — empty values are hidden on the site. */
-  linkedin: '',
+  linkedin: 'https://www.linkedin.com/in/sanjayspear/',
   github: GITHUB,
 
   /** Calculated: completed years since CAREER_START_DATE. */

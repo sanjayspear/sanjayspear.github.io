@@ -8,4 +8,11 @@ import { PROFILE } from '../data/profile';
 })
 export class ContactComponent {
   p = PROFILE;
+  /** 'https://www.linkedin.com/in/x/' → 'linkedin.com/in/x' */
+  linkedinLabel = shortUrl(PROFILE.linkedin);
+  githubLabel = shortUrl(PROFILE.github);
+}
+
+function shortUrl(url: string): string {
+  return url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
 }

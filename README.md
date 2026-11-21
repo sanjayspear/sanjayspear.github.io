@@ -3,11 +3,11 @@
 Personal portfolio website for **Sanjay Y M, Senior QA Automation Engineer**.
 It's a single scrolling page built with **Angular 16**, Bootstrap 4 and PrimeNG, and hosted free on GitHub Pages.
 
-### 🔗 Live site: **https://sanjayspear.github.io/My-Portfolio-App/**
+### 🔗 Live site: **https://sanjayspear.github.io/**
 
-[![Deploy portfolio](https://github.com/sanjayspear/My-Portfolio-App/actions/workflows/deploy.yml/badge.svg)](https://github.com/sanjayspear/My-Portfolio-App/actions/workflows/deploy.yml)
+[![Deploy portfolio](https://github.com/sanjayspear/sanjayspear.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/sanjayspear/sanjayspear.github.io/actions/workflows/deploy.yml)
 
-[![Portfolio home page](docs/screenshots/01-home.jpg)](https://sanjayspear.github.io/My-Portfolio-App/)
+[![Portfolio home page](docs/screenshots/01-home.jpg)](https://sanjayspear.github.io/)
 
 **Sections:** Home · About · Experience · Projects · Personal Projects · Skills · Education · Resume · Contact
 
@@ -30,7 +30,11 @@ It's a single scrolling page built with **Angular 16**, Bootstrap 4 and PrimeNG,
 
 ## 1. Live site and sharing
 
-**Portfolio URL:** https://sanjayspear.github.io/My-Portfolio-App/
+**Portfolio URL:** https://sanjayspear.github.io/
+
+> The site used to be at `https://sanjayspear.github.io/My-Portfolio-App/`. Links shared before
+> the move still work, because they forward to the same section at the new address
+> (`src/legacy-redirect/` and `src/404.html`).
 
 The site is public, so anyone can open it on a phone or computer without a GitHub account.
 
@@ -43,7 +47,7 @@ Any of these show the live link:
 | **Settings → Pages** (most direct) | Open the repo → **Settings** (top tab) → **Pages** (left sidebar, under *Code and automation*). The top of the page says **"Your site is live at https://…"**. Click **Visit site**, or copy the link. |
 | **Deployments** (repo home page) | On the repo's main page, find **Deployments** in the right-hand sidebar → click **github-pages** → each deployment shows **View deployment** with the live link. |
 | **Actions** | **Actions** tab → open the latest **Deploy portfolio** run (green ✔) → the **deploy** box shows the URL. |
-| **Build it yourself** | The pattern is `https://<username>.github.io/<repo-name>/`, so here it's `https://sanjayspear.github.io/My-Portfolio-App/`. |
+| **Build it yourself** | This repo is named `<username>.github.io`, so the site is at the domain root: `https://sanjayspear.github.io/`. |
 
 > **Tip: show the link on the repo's main page.** On the repo home, click the ⚙️ gear next to
 > **About** (right sidebar) → tick **"Use your GitHub Pages website"** → **Save changes**.
@@ -58,7 +62,7 @@ Any of these show the live link:
 **Ready-to-send message:**
 
 > Hi! I've put together my portfolio. Have a look and let me know what you think:
-> https://sanjayspear.github.io/My-Portfolio-App/
+> https://sanjayspear.github.io/
 
 **For recruiters, also add the link to:**
 
@@ -66,11 +70,13 @@ Any of these show the live link:
 |---|---|
 | **LinkedIn** | Edit profile → **Contact info → Website** (type: *Portfolio*). You can also add it under **Featured → Add → Link**. |
 | **Resume** | Next to your email and phone in the header. Then run `npm run update-resume` with the new PDF (see [section 7](#7-updating-your-resume-pdf)). |
-| **Email signature** | Add a line such as *Portfolio: https://sanjayspear.github.io/My-Portfolio-App/* |
+| **Email signature** | Add a line such as *Portfolio: https://sanjayspear.github.io/* |
 | **In person / events** | In Chrome on the live site: **⋮ menu → Cast, save and share → Create QR code**, then download the QR image to print or show on your phone. |
 
-> ℹ️ WhatsApp and Slack show the page title and description when you paste the link, but no
-> preview image yet, because no social preview image is set.
+> ℹ️ When you paste the link into WhatsApp, LinkedIn or Slack, it shows a preview card with this
+> image: `src/assets/og-image.jpg` (1200×630). Apps cache previews, so after changing the image
+> it can take a day to update. On LinkedIn you can refresh it with the
+> [Post Inspector](https://www.linkedin.com/post-inspector/).
 
 ---
 
@@ -99,7 +105,7 @@ Captured from the live site (desktop, 1440 px wide).
 **Education and Resume download:** shows the "Last updated" month automatically.
 ![Education and Resume](docs/screenshots/07-education-resume.jpg)
 
-**Contact:** clickable email, phone and GitHub.
+**Contact:** clickable email, phone, GitHub and LinkedIn.
 ![Contact](docs/screenshots/08-contact.jpg)
 
 > To refresh these after a redesign, take new screenshots of the live site and save them over
@@ -197,7 +203,10 @@ My-Porfolio-App/
 │   ├── assets/
 │   │   ├── resume/Sanjay-Y-M-Resume.pdf   ← the PDF visitors download
 │   │   ├── Images/ · vedio/                ← images and the education video
-│   ├── index.html                ← browser tab title and default description
+│   │   ├── og-image.jpg          ← link-preview image (WhatsApp, LinkedIn, Slack)
+│   ├── index.html                ← browser tab title, description and link-preview tags
+│   ├── 404.html                  ← forwards unknown/old addresses to the right page
+│   ├── legacy-redirect/          ← keeps the old /My-Portfolio-App/ link working
 │   └── styles.scss               ← shared colours, cards, buttons
 ├── scripts/update-resume.mjs     ← powers `npm run update-resume`
 └── package.json
@@ -346,7 +355,7 @@ Add an entry to the `personalProjects` list (cards appear in list order):
 |---|---|
 | Add a skill | Add it to the matching group's `items` in `skills` |
 | Add a CI/CD platform | Add it to `CI_CD_PLATFORMS` (QUICK UPDATE block) |
-| Add **LinkedIn** | Fill in `linkedin: 'https://…'`. The icon and contact card appear only when it's set. GitHub is already set from `GITHUB` |
+| Change **LinkedIn / GitHub** | `linkedin` (set to your profile) and `GITHUB` (QUICK UPDATE area). Their icons and contact cards appear only when set |
 | Change phone, email, location | `email`, `phone` (shown), `phoneHref` (digits for the call link), `location` |
 | Edit the bio | the `about` paragraphs. Keep `${YEARS}+` wherever you mention experience so it stays automatic |
 | Change the rotating titles on Home | the `roles` list |

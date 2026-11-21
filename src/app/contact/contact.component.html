@@ -30,14 +30,14 @@
             <a class="glass-card contact-card" [href]="p.github" target="_blank" rel="noopener">
                 <i class="pi pi-github contact-icon"></i>
                 <span class="contact-label">GitHub</span>
-                <strong class="contact-value">{{ p.github.replace('https://', '') }}</strong>
+                <strong class="contact-value">{{ githubLabel }}</strong>
             </a>
         </div>
         <div class="col-md-6 col-lg-4 mb-4" *ngIf="p.linkedin">
             <a class="glass-card contact-card" [href]="p.linkedin" target="_blank" rel="noopener">
                 <i class="pi pi-linkedin contact-icon"></i>
                 <span class="contact-label">LinkedIn</span>
-                <strong class="contact-value">View profile</strong>
+                <strong class="contact-value">{{ linkedinLabel }}</strong>
             </a>
         </div>
     </div>
