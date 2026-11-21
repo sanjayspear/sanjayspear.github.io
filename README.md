@@ -336,8 +336,9 @@ Add an entry to the `personalProjects` list (cards appear in list order):
 ```
 
 > ⚠️ Only add a `demo` link that works for people who **aren't logged in**. Open it in a
-> private/incognito window first (`Cmd + Shift + N` in Chrome). For example, Resume Builder's demo
-> is hidden for now because its Vercel link asks visitors to log in.
+> private/incognito window first (`Cmd + Shift + N` in Chrome). Vercel projects, for example,
+> ask visitors to log in unless Deployment Protection is turned off. GitHub Pages links are
+> always public.
 
 ### Other common edits
 

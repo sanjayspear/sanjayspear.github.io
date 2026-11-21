@@ -218,10 +218,9 @@ const personalProjects: PersonalProject[] = [
       'Local-first and private: no account or server, auto-save, and export/import backups.',
     ],
     tech: ['Next.js', 'React', 'TypeScript', 'React-PDF', 'TipTap', 'React Hook Form', 'Zod'],
-    quality: 'Schema validation with Zod · ESLint + strict TypeScript · automated deploy workflow',
+    quality: 'Schema validation with Zod · CI runs ESLint → static build → GitHub Pages deploy',
     repo: `${GITHUB}/resume-builder`,
-    // Add the live link once it's public (it currently asks visitors to log in to Vercel):
-    demo: '',
+    demo: 'https://sanjayspear.github.io/resume-builder/',
   },
   {
     name: 'PhonicsPal',
