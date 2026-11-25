@@ -209,6 +209,20 @@ const personalProjects: PersonalProject[] = [
     repo: `${GITHUB}/Whatsanew`,
   },
   {
+    name: 'StepViz',
+    type: 'Web App',
+    icon: 'fas fa-code',
+    tagline: 'Code visualizer: paste a Python, JavaScript, Java, C++ or C program and watch it run one step at a time.',
+    highlights: [
+      'Shows the running line, variables, call stack and output, with each step explained in plain English and a real-life comparison.',
+      'Runs entirely in the browser: Python in Pyodide, JavaScript instrumented with Acorn, Java/C++/C parsed with tree-sitter, each in a sandboxed Web Worker with no backend.',
+    ],
+    tech: ['React', 'TypeScript', 'Vite', 'Pyodide', 'Acorn', 'tree-sitter', 'CodeMirror', 'Web Workers'],
+    quality: '14 Playwright spec files, including a 16-point acceptance checklist · CI deploys to GitHub Pages',
+    repo: `${GITHUB}/StepViz---The-Code-Visualizer-App`,
+    demo: 'https://sanjayspear.github.io/StepViz---The-Code-Visualizer-App/',
+  },
+  {
     name: 'Resume Builder',
     type: 'Web App',
     icon: 'fas fa-file-alt',
